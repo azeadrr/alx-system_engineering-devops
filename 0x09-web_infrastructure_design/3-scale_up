@@ -1,3 +1,6 @@
+task 3 screenshot:
+in github:https://raw.githubusercontent.com/azeadrr/alx-system_engineering-devops/master/0x09-web_infrastructure_design/3-scale_up.png
+in imgur:https://imgur.com/O6jQT8r
 
 answer:
 For every additional element, why you are adding it: we have two load balancer and 6 servers each with either (application server and codebase and monitoring clients) or (web server and codebase and monitoring clients) and two separate servers that only contain the database and monitoring clients and also addition of a firewall between each server This protects each server from unwanted and unauthorized users rather than protecting a single server.
