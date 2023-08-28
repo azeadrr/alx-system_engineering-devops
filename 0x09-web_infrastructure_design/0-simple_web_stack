@@ -1,0 +1,14 @@
+
+answers:
+specifics about this infrastructure:
+-What is a server: it's a computer system hardware or software runing on Ubuntu and windows server that is designed to provide services, resources and cloud.
+-What is the role of the domain name: to allow visitors to visit the website that holds that domain name and for the ease of remembering for visitors
+-What is the role of the web server: reprents the role of the web server in listening to requests
+-What is the role of the application server: reprents application server handle the data processing and dynamic generation of the content
+-What is the role of the database: role of a database is to store the data and arrange it for later use for anything whether an application or a website...
+-What is the server using to communicate with the computer of the user requesting the website: the server to communicate with user uses ip adress and also using Hypertext Transfer Protocol(HTTP) or secure version Hypertext Transfer Protocol Secure(HTTPS).
+
+issues are with this infrastructure:
+-SPOF which means that if a critical component or server fails, the entire system could become inaccessible
+-Downtime when maintenance needed: at the time of maintenance the system has to be fully stopped because we only have one server
+-Cannot scale if too much incoming traffic: with a too much incoming traffic, it will be a lot of pressure on the server, so it can cause the server to be disabled and then the entire site.

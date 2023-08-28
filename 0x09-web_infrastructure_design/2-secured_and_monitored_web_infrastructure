@@ -1,0 +1,14 @@
+
+answers:
+specifics about this infrastructure:
+-For every additional element, why you are adding it: We added firewalls in order to protect the communication between the site and visitors, provide security, and also prevent unauthorized access to the network. It verifies the incoming and going data, and also adds a ssl certificate in order for https to encrypt the going and incoming data safely for the site and visitors.
+-What are firewalls for:Block and filter unauthorized users as well as protect against cyberattacks by installing firewalls on major and essential components.
+-Why is the traffic served over HTTPS: traffic through https is provided in order to protect the data transferred between the site and the visitor by encrypting this data and only the visitor and the site can read this data without encryption in order to protect the communication between the site and visitors from hackers.
+-What monitoring is used for: in order to monitor visitors and their behaviors within the site to detect unwanted behaviors
+-How the monitoring tool is collecting data: collecting data and sending it only the monitoring system used
+-Explain what to do if you want to monitor your web server QPS: monitor and verify the data, configure an alert in the event of a web server failure and take the necessary measures such as collecting a copy of the data before any failure occurs
+
+issues are with this infrastructure:
+-Why terminating SSL at the load balancer level is an issue:terminating SSL at the load balancer can expose decrypted traffic within connection between users and website, potentially compromising security, additionally end-to-end encryption between the load balancer and servers is lost
+-Why having only one MySQL server capable of accepting writes is an issue: relying on a single MySQL server for writes creates a single point of failure; if the server fails, writes and updates halt.
+-Why having servers with all the same components (database, web server and application server) might be a problem: if there is an overload on one server, the other servers will not continue to work until the first server finishes, as well as protection, so that if the components of one server are hacked, it will infiltrate the other servers and put them at risk.

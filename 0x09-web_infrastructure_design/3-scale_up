@@ -1,0 +1,3 @@
+
+answer:
+For every additional element, why you are adding it: we have two load balancer and 6 servers each with either (application server and codebase and monitoring clients) or (web server and codebase and monitoring clients) and two separate servers that only contain the database and monitoring clients and also addition of a firewall between each server This protects each server from unwanted and unauthorized users rather than protecting a single server.

@@ -1,0 +1,11 @@
+
+answers:
+specifics about this infrastructure:
+-For every additional element, why you are adding it: We now have two servers, each of them has a database, a web server and an application server, as well as codebase, we did this so that if there is traffic incoming using load baalancer, the service will distribute traffic between the two servers and so we can protect the two servers in a better way using haproxy.
+-What distribution algorithm your load balancer is configured with and how it works: The algorithm used is a round robin because we have two servers and a load balancer where the load is evenly distributed between them.
+-Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both: Active-active because
+
+issues are with this infrastructure:
+-Where are SPOF:in load blancer
+-Security issues:Without the https protocol, anyone who attacks the site will be able to read the requests, and without the firwall, the hacker can access, read and take data, and he can do anything on the site.
+-No monitoring: Lack of monitoring leads to problems that cannot be located or what they are.
