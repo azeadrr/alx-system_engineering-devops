@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Install Nginx web server
-exec {'install nginx web server':
+exec {'install':
   provider => shell,
   command  => 'sudo apt-get -y update ;
   sudo apt-get -y install nginx ;
