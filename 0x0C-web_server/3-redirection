@@ -3,6 +3,6 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo ufw allow "Nginx HTTP"
-replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "s/server_name _;/$replacement/" /etc/nginx/sites-enabled/default
+replacement_st="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "60i\\$replacement_st" /etc/nginx/sites-enabled/default
 sudo service nginx restart
