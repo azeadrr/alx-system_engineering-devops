@@ -8,4 +8,5 @@ exec {'instal nginx web server':
   sudo sed -i "s/server_name _;/server_name _;
   \n\trewrite ^\/redirect_me https:\/\/github.com\/OluwaninsolaAO permanent;
   /" /etc/nginx/sites-available/default ;
-  sudo service nginx start',}
+  sudo service nginx start',
+}
