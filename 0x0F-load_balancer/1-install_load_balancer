@@ -7,12 +7,9 @@ frontend="frontend front
     default_backend backservers
     bind *:80
     mode http"
-
 backend="backend backservers
-    balance roundrobin
     server 270819-web-01 54.234.81.198:80 check
     server 270819-web-02 52.87.219.252:80 check"
-
 config="
 $frontend
 $backend"
