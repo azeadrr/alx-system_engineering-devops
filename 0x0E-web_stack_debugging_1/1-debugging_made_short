@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# configures nginx to run on port 80
+#Make it sweet and short
+
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo /etc/init.d/nginx restart
 sudo rm /var/run/nginx.pid
