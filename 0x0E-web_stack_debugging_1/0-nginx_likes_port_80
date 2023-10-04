@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# this script Nginx run, and listening on port 80 of all the server’s active IPv4 IPs
-sudo apt-get update
-sudo apt-get -y install curl
-sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-sudo service nginx restart
+# what’s keeping your Ubuntu container’s Nginx installation from listening on port 80
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
