@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #Make it sweet and short
 sudo apt-get update
-sudo apt-get -y install curl
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo /etc/init.d/nginx restart
 sudo rm /var/run/nginx.pid
