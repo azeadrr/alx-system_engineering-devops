@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Make it sweet and short
+
+sudo apt-get update
+sudo apt-get -y install curl
+sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+sudo /etc/init.d/nginx restart
+sudo rm /var/run/nginx.pid
