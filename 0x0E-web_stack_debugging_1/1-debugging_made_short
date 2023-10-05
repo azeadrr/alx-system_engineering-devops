@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Make it sweet and short
-sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-sudo /etc/init.d/nginx restart
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 sudo pkill -1 nginx
+sudo /etc/init.d/nginx restart
