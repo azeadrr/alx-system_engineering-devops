@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #install the ufw firewall and setup a few rules
+
 sudo apt install ufw
 sudo ufw disable
 udo ufw default deny incoming
