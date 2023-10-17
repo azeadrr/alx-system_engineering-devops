@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+#Setup a Primary-Replica infrastructure using MySQL
 [mysqld]
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
