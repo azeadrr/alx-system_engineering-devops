@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #7 lines or less
-
 sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
 sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
 chmod 644 /etc/nginx/nginx.conf
