@@ -1,28 +1,29 @@
 #!/usr/bin/python3
-""" Python script that
-using this REST AP"""
+""" Python script that using this REST API"""
 import json
 from sys import argv
 from urllib import request
 
+
 def usr(argv):
-    """Gather data from an API"""
-    tasksid = request.urlopen(
+    """this function do most of the job"""
+    tasks_id = request.urlopen(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(argv))
-    userid = request.urlopen(
+    user_name = request.urlopen(
         'https://jsonplaceholder.typicode.com/users/{}'.format(argv))
-    res = tasksid.read()
-    user = userid.read()
-    json_dict = json.loads(res.decode("utf-8"))
-    json_user = json.loads(user.decode("utf-8"))
+    res_body = tasks_id.read()
+    user_body = user_name.read()
+    json_dict = json.loads(res_body.decode("utf-8"))
+    json_user = json.loads(user_body.decode("utf-8"))
     count = 0
     for i in range(0, len(json_dict)):
         if not json_dict[i]['completed']:
             count += 1
-            print('Employee {} is done with tasks({}/{}):'
-          .format(json_user['name'], len(json_dict) - count, len(json_dict)))
-    for idx in range(0, len(json_dict)):
-        if json_dict[idx]['completed']:
+    ret = 'Employee {} is done with tasks({}/{}):'
+          .format(json_user['name'], len(json_dict) - count, len(json_dict))
+          print(ret)
+    for ix in range(0, len(json_dict)):
+        if json_dict[ix]['completed']:
             print('\t {}'.format(json_dict[idx]['title']))
 
 
