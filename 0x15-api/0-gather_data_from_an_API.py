@@ -7,12 +7,12 @@ from urllib import request
 
 def user(argv):
     """Gather data from an API"""
-    tsks_id = request.urlopen(
+    tasks_id = request.urlopen(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(argv))
-    user_name = request.urlopen(
+    usr_name = request.urlopen(
         'https://jsonplaceholder.typicode.com/users/{}'.format(argv))
-    res_body = tsks_id.read()
-    user_body = user_name.read()
+    res_body = tasks_id.read()
+    user_body = usr_name.read()
     json_dict = json.loads(res_body.decode("utf-8"))
     json_user = json.loads(user_body.decode("utf-8"))
     count = 0
