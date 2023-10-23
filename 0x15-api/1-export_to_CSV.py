@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """extend your Python script to
 export data in the CSV format"""
-import json
 import csv
+import json
 from sys import argv
 from urllib import request
 
