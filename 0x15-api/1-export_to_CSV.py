@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""Export to CSV"""
+"""this model is my firt time using REST API"""
 import csv
 import json
 from sys import argv
 from urllib import request
 
 
-def csv(argv):
-    tasks_id = request.urlopen(
+def to_csv(argv):
+    tsks_id = request.urlopen(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(argv))
-    usr_name = request.urlopen(
+    user_name = request.urlopen(
         'https://jsonplaceholder.typicode.com/users/{}'.format(argv))
-    res_body = tasks_id.read()
-    user_body = usr_name.read()
+    res_body = tsks_id.read()
+    user_body = user_name.read()
     json_dict = json.loads(res_body.decode("utf-8"))
     json_user = json.loads(user_body.decode("utf-8"))
     file_name = '{}.csv'.format(argv)
@@ -27,4 +27,4 @@ def csv(argv):
 
 
 if __name__ == "__main__":
-    csv(argv=argv[1])
+    to_csv(argv=argv[1])
