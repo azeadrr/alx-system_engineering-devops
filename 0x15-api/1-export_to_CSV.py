@@ -18,10 +18,10 @@ def csv(argv):
     json_user = json.loads(user_body.decode("utf-8"))
     file_name = '{}.csv'.format(argv)
     with open(file_name, 'w') as csv_f:
-        wrt = csv.writer(csv_f, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csv_f, quoting=csv.QUOTE_ALL)
 
         for idx in range(0, len(json_dict)):
-            wrt.writerow([json_user['id'], json_user['username'],
+            writer.writerow([json_user['id'], json_user['username'],
                              json_dict[idx]['completed'],
                             json_dict[idx]['title']])
     csv_f.close()
