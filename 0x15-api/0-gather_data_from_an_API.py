@@ -5,8 +5,8 @@ from sys import argv
 from urllib import request
 
 
-def get_user(argv):
-    """this function do most of the job"""
+def user(argv):
+    """Gather data from an API"""
     tsks_id = request.urlopen(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(argv))
     user_name = request.urlopen(
@@ -28,4 +28,4 @@ def get_user(argv):
 
 if __name__ == "__main__":
     if len(argv) == 2:
-        get_user(argv=argv[1])
+        user(argv=argv[1])
