@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""extend your Python script to
-export data in the CSV format"""
+"""Export to CSV"""
 import csv
 import json
 from sys import argv
