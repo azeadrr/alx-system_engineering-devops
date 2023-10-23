@@ -19,9 +19,8 @@ def usr(argv):
     for i in range(0, len(json_dict)):
         if not json_dict[i]['completed']:
             count += 1
-    ret = 'Employee {} is done with tasks({}/{}):'
-          .format(json_user['name'], len(json_dict) - count, len(json_dict))
-          print(ret)
+           print('Employee {} is done with tasks({}/{}):'
+                   .format(json_user['name'], len(json_dict) - count, len(json_dict)))
     for ix in range(0, len(json_dict)):
         if json_dict[ix]['completed']:
             print('\t {}'.format(json_dict[idx]['title']))
