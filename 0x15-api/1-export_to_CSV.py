@@ -6,7 +6,7 @@ from sys import argv
 from urllib import request
 
 
-def csv(argv):
+def to_csv(argv):
     tasks_id = request.urlopen(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(argv))
     usr_name = request.urlopen(
@@ -27,4 +27,4 @@ def csv(argv):
 
 
 if __name__ == "__main__":
-    csv(argv=argv[1])
+    to_csv(argv=argv[1])
