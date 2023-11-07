@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" function that executes an api get request """
+""" function that queries the Reddit API and returns the number of subscribers """
 from requests import get
 
 
 def number_of_subscribers(subreddit):
-    """ api request to get number of subscribers """
+    """ get number of subscribers """
     if subreddit is None or not isinstance(subreddit, str):
         return 0
     lien = "https://www.reddit.com/r/{}/about.json".format(subreddit)
