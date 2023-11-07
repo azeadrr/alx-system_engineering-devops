@@ -13,10 +13,10 @@ def top_ten(subreddit):
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) \
                 Gecko/20100101 Firefox/108.0"
     }
-    pms = {
+    params = {
             "limit": 10
             }
-    resp = get(link, pms=pms, headers=headers,
+    resp = get(link, params=params, headers=headers,
                    allow_redirects=False).json()
     children = resp.get("data", {}).get("children", None)
     if children:
