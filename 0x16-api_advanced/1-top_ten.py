@@ -2,6 +2,7 @@
 """function that queries the Reddit API"""
 from requests import get
 
+
 def top_ten(subreddit):
     """
     prints titles of first 10 hot posts listed
