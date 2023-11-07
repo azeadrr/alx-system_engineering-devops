@@ -8,7 +8,7 @@ def top_ten(subreddit):
     """
     if subreddit is None:
         return 0
-    link = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) \
                 Gecko/20100101 Firefox/108.0"
@@ -16,11 +16,11 @@ def top_ten(subreddit):
     params = {
             "limit": 10
             }
-    resp = get(link, params=params, headers=headers,
+    resp = get(url, params=params, headers=headers,
                    allow_redirects=False).json()
-    children = resp.get("data", {}).get("children", None)
-    if children:
-        for subject in children:
+    child = resp.get("data", {}).get("child", None)
+    if child:
+        for subject in child:
             print(subject.get("data").get("title"))
     else:
         print("None")
