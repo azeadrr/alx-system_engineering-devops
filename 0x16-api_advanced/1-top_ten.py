@@ -6,10 +6,10 @@ from requests import get
 def top_ten(subreddit):
     """prints titles of first 10 hot posts"""
     
-    url_base = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {'User-Agent': 'MyBot/1.0 (by /u/bouhvli)'}
 
-    resp = requests.get(url_base, headers=headers)
+    resp = requests.get(url, headers=headers)
     if resp.status_code == 200:
         try:
             dt = resp.json()
