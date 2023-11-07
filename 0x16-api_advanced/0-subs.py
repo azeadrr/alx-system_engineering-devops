@@ -8,10 +8,10 @@ def number_of_subscribers(subreddit):
     if subreddit is None or not isinstance(subreddit, str):
         return 0
     link = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    head = {
+    headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) \
                 Gecko/20100101 Firefox/108.0"
     }
-    resp = get(link, head=head).json()
+    resp = get(link, headers=headers).json()
     subscribers = resp.get('data', {}).get('subscribers', 0)
     return subscribers
