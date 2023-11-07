@@ -4,7 +4,9 @@ from requests import get
 
 
 def top_ten(subreddit):
-    """prints titles of first 10 hot posts"""
+    """
+    function that queries the Reddit API
+    """
     if subreddit is None:
         return 0
     url_base = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
@@ -17,9 +19,9 @@ def top_ten(subreddit):
             }
     resp = get(url_base, params=params, headers=headers,
                    allow_redirects=False).json()
-    child = resp.get("data", {}).get("children", None)
-    if child:
-        for subject in child:
+    children = resp.get("data", {}).get("children", None)
+    if children:
+        for subject in children:
             print(subject.get("data").get("title"))
     else:
         print("None")
