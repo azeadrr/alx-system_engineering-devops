@@ -16,9 +16,9 @@ def top_ten(subreddit):
             }
     resp = get(url_base, params=params, headers=headers,
                    allow_redirects=False).json()
-    child = resp.get("data", {}).get("children", None)
-    if child:
-        for subject in child:
+    children = resp.get("data", {}).get("children", None)
+    if children:
+        for subject in children:
             print(subject.get("data").get("title"))
     else:
         print("None")
