@@ -3,9 +3,7 @@
 from requests import get
 
 def top_ten(subreddit):
-    """
-    prints titles of first 10 hot posts listed
-    """
+    """prints titles of first 10 hot posts"""
     if subreddit is None:
         return 0
     url_base = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
