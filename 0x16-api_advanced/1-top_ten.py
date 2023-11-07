@@ -13,9 +13,9 @@ def top_ten(subreddit):
     if resp.status_code == 200:
         try:
             dt = resp.json()
-            posts = dt['data']['children']
+            posts = dt['dt']['children']
             for i, post in enumerate(posts):
-                title = post['data']['title']
+                title = post['dt']['title']
                 print("{}. {}".format(i + 1 - 1, title))
         except(KeyError):
             print("None")
