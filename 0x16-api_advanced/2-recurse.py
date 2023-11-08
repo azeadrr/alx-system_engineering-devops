@@ -8,12 +8,12 @@ def recurse(subreddit, hot_list=[], after=""):
 
     url_base = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {'User-Agent': 'Custom)'}
-    resp = requests.get(url_base, headers=headers, params={"after": after})
+    response = requests.get(url, headers=headers, params={"after": after})
 
-    if resp.status_code == 200:
-        data = resp.json()
-        for pst in data['data']['children']:
-            hot_list.append(pst['data']['title'])
+    if response.status_code == 200:
+        data = response.json()
+        for post in data['data']['children']:
+            hot_list.append(post['data']['title'])
         after = data['data']['after']
         if after is None:
             return hot_list
