@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """function that queries the Reddit API"""
-import requests import get
+from requests import get
 
 
 def top_ten(subreddit):
-    """prints titles of first 10 hot posts"""
+    """
+    function that queries the Reddit API
+    """
     if subreddit is None:
         return 0
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
@@ -17,9 +19,9 @@ def top_ten(subreddit):
             }
     response = get(url, params=params, headers=headers,
                    allow_redirects=False).json()
-    children = response.get("data", {}).get("children", None)
-    if children:
-        for subject in children:
+    child = response.get("data", {}).get("children", None)
+    if child:
+        for subject in child:
             print(subject.get("data").get("title"))
     else:
         print("None")
