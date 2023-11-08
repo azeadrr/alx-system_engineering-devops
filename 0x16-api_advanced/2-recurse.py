@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """function that queries the Reddit API"""
-import requests import get
+from requests import get
 
 
 def recurse(subreddit, hot_list=[], after="", count=0):
-    """function that queries the Reddit API"""
+    """
+    function that queries the Reddit API
+    """
 
     url_base = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {
@@ -16,8 +18,8 @@ def recurse(subreddit, hot_list=[], after="", count=0):
             "after": after,
             "count": count
     }
-    resp = get(url_base, params=params, headers=headers,
-                   allow_redirects=False)
+    resp = get(url_base, params=params,
+                   headers=headers, allow_redirects=False)
     if resp.status_code == 404:
         return None
     res = resp.json().get("data")
