@@ -21,7 +21,7 @@ def top_ten(subreddit):
                    allow_redirects=False).json()
     child = response.get("data", {}).get("children", None)
     if child:
-        for subject in child:
-            print(subject.get("data").get("title"))
+        for subjects in child:
+            print(subjects.get("data").get("title"))
     else:
         print("None")
