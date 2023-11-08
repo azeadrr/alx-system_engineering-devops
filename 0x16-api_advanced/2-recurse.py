@@ -18,11 +18,11 @@ def recurse(subreddit, hot_list=[], after="", count=0):
             "after": after,
             "count": count
     }
-    resp = get(url_base, params=params,
+    response = get(url_base, params=params,
                    headers=headers, allow_redirects=False)
-    if resp.status_code == 404:
+    if response.status_code == 404:
         return None
-    res = resp.json().get("data")
+    res = response.json().get("data")
     after = res.get("after")
     count += res.get("dist")
     for child in res.get("children"):
