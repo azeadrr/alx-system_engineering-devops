@@ -1,19 +1,16 @@
 #!/usr/bin/python3
 """function that queries the Reddit API"""
-from requests import get
+import requests
 
 
-def recurse(subreddit, hot_list=[], after="", count=0):
+def recurse(subreddit, hot_list=[], after=""):
     """
     function that queries the Reddit API
     """
 
-    url_base = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) \
-                Gecko/20100101 Firefox/108.0"
-    }
-    response = requests.get(url_base, headers=headers, params={"after": after})
+    url = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    headers = {'User-Agent': 'azeadrr)'}
+    response = requests.get(url, headers=headers, params={"after": after})
 
     if response.status_code == 200:
         data = response.json()
