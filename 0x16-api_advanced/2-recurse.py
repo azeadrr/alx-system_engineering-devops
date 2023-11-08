@@ -7,10 +7,9 @@ def recurse(subreddit, hot_list=[], after=""):
     """
     function that queries the Reddit API
     """
-
-    url_base = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {'User-Agent': 'azeadrr)'}
-    response = requests.get(url_base, headers=headers, params={"after": after})
+    response = requests.get(url, headers=headers, params={"after": after})
 
     if response.status_code == 200:
         data = response.json()
