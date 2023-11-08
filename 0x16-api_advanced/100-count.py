@@ -12,10 +12,10 @@ def count_words(subreddit, word_list, after="", count=[]):
     url_base = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     params = {"after": after}
     headers = {"user-agent": 'bhalut'}
-    reqst = get(url_base, params=params,
+    requests = get(url_base, params=params,
               allow_redirects=False, headers=headers)
-    if reqst.status_code == 200:
-        data = reqst.json()
+    if requests.status_code == 200:
+        data = requests.json()
 
         for tpc in (data['data']['children']):
             for word in tpc['data']['title'].split():
