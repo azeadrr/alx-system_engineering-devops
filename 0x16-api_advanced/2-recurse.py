@@ -3,21 +3,29 @@
 import requests import get
 
 
-def recurse(subreddit, hot_list=[], after=""):
+def recurse(subreddit, hot_list=[], after="", count=0):
     """function that queries the Reddit API"""
 
-    url_base = "https://api.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
-    headers = {'User-Agent': 'Custom)'}
-    response = requests.get(url, headers=headers, params={"after": after})
-
-    if response.status_code == 200:
-        data = response.json()
-        for post in data['data']['children']:
-            hot_list.append(post['data']['title'])
-        after = data['data']['after']
-        if after is None:
-            return hot_list
-        else:
-            return recurse(subreddit, hot_list, after)
-    else:
+    url_base = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) \
+                Gecko/20100101 Firefox/108.0"
+    }
+    params = {
+            "limit": 100,
+            "after": after,
+            "count": count
+    }
+    resp = get(url_base, params=params, headers=headers,
+                   allow_redirects=False)
+    if resp.status_code == 404:
         return None
+    res = resp.json().get("data")
+    after = res.get("after")
+    count += res.get("dist")
+    for child in res.get("children"):
+        hot_list.append(child.get("data").get("title"))
+
+    if after is not None:
+        return recurse(subreddit, hot_list, after, count)
+    return hot_list
