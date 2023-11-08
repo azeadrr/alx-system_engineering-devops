@@ -22,10 +22,10 @@ def recurse(subreddit, hot_list=[], after="", count=0):
                    headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return None
-    res = response.json().get("data")
-    after = res.get("after")
-    count += res.get("dist")
-    for child in res.get("children"):
+    resp = response.json().get("data")
+    after = resp.get("after")
+    count += resp.get("dist")
+    for child in resp.get("children"):
         hot_list.append(child.get("data").get("title"))
 
     if after is not None:
